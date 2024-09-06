@@ -1,9 +1,19 @@
-import { Card } from "@/components/Card"
+import { peopleList } from '@/data/peopleList'
 
 const Page = () => {
+  const chemists = peopleList.filter(person => person.profession === 'chemist')
   return (
     <div>
-      <Card phrase="A vingança nunca é plena, mata a alma e a envenena." author="Seu Madruga" />
+      <h1 className="font-bold text-2xl">Olá, mundo!</h1>
+      {chemists.length > 0 &&
+        <>
+          <h3>Químicos</h3>
+          <ul>
+            {chemists.map(person => <li key={person.id}>{person.name} - {person.profession}</li>)}
+          </ul>
+        </>
+      }
+      
     </div>
   )
 }
